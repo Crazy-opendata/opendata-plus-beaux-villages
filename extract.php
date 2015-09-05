@@ -16,11 +16,16 @@ function create_country($country=null) {
     global $mysql_cmd, $mysql_db, $mysql_table;
 
     $filename = "World/sql/villages.sql";
-    $where = "";
+    $where_sql = "";
+    $where_option="";
     if ($country) {
-        $where = "--where 'country=\"$country\"'";
+        $where_sql = "where country=\"$country\"";
+        $where_option = "--where 'country=\"$country\"'";
         $filename = "$country/sql/villages.sql";
     }
-    exec("$mysql_cmd $mysql_db $mysql_table $where > $filename");
+    $sed = "sed 's/LOCK TABLES /DELETE FROM \`villages\` $where_sql; LOCK TABLES /'";
+    $sed .= "| sed 's/CREATE TABLE /CREATE TABLE IF NOT EXISTS /'";
+
+    exec("$mysql_cmd $mysql_db $mysql_table $where_option | $sed > $filename");
 }
 

@@ -21,7 +21,7 @@
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `villages` (
+CREATE TABLE IF NOT EXISTS `villages` (
   `village` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `slug` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `code_postal` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `villages` (
 -- Dumping data for table `villages`
 --
 
-LOCK TABLES `villages` WRITE;
+DELETE FROM `villages` ; LOCK TABLES `villages` WRITE;
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` VALUES ('Aiguèze','aigueze','30760','44.3160186564,4.51739879151','Languedoc-Roussillon','France');
 INSERT INTO `villages` VALUES ('Ainhoa','ainhoa','64250','43.2973870708,-1.48514354363','Aquitaine','France');

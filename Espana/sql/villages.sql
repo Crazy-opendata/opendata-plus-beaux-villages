@@ -21,7 +21,7 @@
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `villages` (
+CREATE TABLE IF NOT EXISTS `villages` (
   `village` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `slug` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `code_postal` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `villages` (
 --
 -- WHERE:  country="Espana"
 
-LOCK TABLES `villages` WRITE;
+DELETE FROM `villages` where country="Espana"; LOCK TABLES `villages` WRITE;
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` VALUES ('Aínsa','ainsa',NULL,'42.414694,0.140381',NULL,'Espana');
 INSERT INTO `villages` VALUES ('Albarracín','albarracin',NULL,'40.407558,-1.443876',NULL,'Espana');
