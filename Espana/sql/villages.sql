@@ -19,7 +19,6 @@
 -- Table structure for table `villages`
 --
 
-DROP TABLE IF EXISTS `villages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `villages` (
@@ -88,4 +87,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-02 23:56:53
+-- Dump completed
