@@ -16,6 +16,7 @@ Sources
 - Espana : http://www.lospueblosmasbonitosdeespana.org
 - Italia : http://www.borghitalia.it
 - Belgique : http://www.beauxvillages.be
+- Japan : https://fr.wikipedia.org/wiki/Liste_des_localit%C3%A9s_adh%C3%A9rant_%C3%A0_l%27association_Les_Plus_Beaux_Villages_du_Japon
 
 
 Licence

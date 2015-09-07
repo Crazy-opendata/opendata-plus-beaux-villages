@@ -3,7 +3,6 @@
 Countries
 =========
 
-* Add Japan villages
 * Add Quebec villages
 
 
