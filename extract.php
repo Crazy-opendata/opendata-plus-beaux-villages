@@ -11,6 +11,7 @@ create_country();
 create_country('France');
 create_country('Espana');
 create_country('Italia');
+create_country('Belgique');
 
 function create_country($country=null) {
     global $mysql_cmd, $mysql_db, $mysql_table;
