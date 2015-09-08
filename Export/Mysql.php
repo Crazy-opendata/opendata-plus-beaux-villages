@@ -9,7 +9,7 @@ class Mysql extends Export
     public function export($country)
     {
 
-        $mysql_cmd   = "mysqldump "
+        $mysql_cmd   = "/usr/bin/mysqldump "
             ." -u".$this->config->mysqlUser
             ." -p".$this->config->mysqlPass
             ." --extended-insert=false --skip-dump-date --skip-add-drop-table ";
