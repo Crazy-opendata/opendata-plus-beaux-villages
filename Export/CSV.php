@@ -10,11 +10,8 @@ class CSV extends Export
     {
 
         $where_sql = "";
-        if ($country) {
+        if ($country != WORLD) {
             $where_sql = "where country=\\\"$country\\\"";
-        }
-        if (!$country) {
-            $country = "World";
         }
         $filename = $this->exportName.".".$this->tag;
         $dir = $country.'/'.$this->tag;

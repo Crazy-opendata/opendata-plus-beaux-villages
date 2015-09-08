@@ -1,7 +1,7 @@
 <?php
 
 
-class Export
+abstract class Export
 {
 
     public $config;

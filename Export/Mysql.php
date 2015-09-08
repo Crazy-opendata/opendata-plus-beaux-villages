@@ -14,13 +14,12 @@ class Mysql extends Export
             ." -p".$this->config->mysqlPass
             ." --extended-insert=false --skip-dump-date --skip-add-drop-table ";
 
-        $filename = "World/".$this->tag."/".$this->exportName.".".$this->tag;
+        $filename = $country."/".$this->tag."/".$this->exportName.".".$this->tag;
         $where_sql = "";
         $where_option="";
-        if ($country) {
+        if ($country != WORLD) {
             $where_sql = "where country=\"$country\"";
             $where_option = "--where 'country=\"$country\"'";
-            $filename = "$country/".$this->tag."/".$this->exportName.".".$this->tag;
         }
         $sed = "sed 's/LOCK TABLES /DELETE FROM \`villages\` $where_sql; LOCK TABLES /'";
         $sed .= "| sed 's/CREATE TABLE /CREATE TABLE IF NOT EXISTS /'";
