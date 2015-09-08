@@ -9,7 +9,6 @@ Countries
 Formats
 =======
 
-* Add CSV extract
 * Add JSON extract
 * Add GeoJSON extract
 
