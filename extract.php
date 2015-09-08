@@ -1,9 +1,23 @@
 <?php
 
+require __DIR__."/Config.php";
+require __DIR__."/Export.php";
+require __DIR__."/Export/Mysql.php";
+require __DIR__."/Export/CSV.php";
+
 $mysql_user  = $argv[1];
 $mysql_pass  = $argv[2];
 $mysql_db    = "data";
+$mysql_host  = "localhost";
 $mysql_table = "villages";
+
+$config = new Config(
+    $mysql_user,
+    $mysql_pass,
+    $mysql_db,
+    $mysql_host,
+    $mysql_table
+);
 
 
 create_country();
@@ -35,24 +49,11 @@ function create_country($country=null) {
  * @return void
  */
 function create_country_csv($country=null) {
-    global $mysql_db, $mysql_table, $mysql_user, $mysql_pass;
+    global $config;
 
-    $where_sql = "";
-    if ($country) {
-        $where_sql = "where country=\\\"$country\\\"";
-    }
-    if (!$country) {
-        $country = "World";
-    }
-    $filename = "villages.csv";
-    $dir = $country.'/csv';
-    if (!is_dir($dir)) {
-        mkdir($dir);
-    }
+    $csv = new CSV($config);
+    $csv->export($country);
 
-    // Source http://stackoverflow.com/questions/12040816/mysqldump-in-csv-format
-    exec("/usr/bin/mysql -B -u$mysql_user -p$mysql_pass $mysql_db -e \"SELECT * FROM $mysql_table $where_sql ORDER BY village;\""
-        .' | sed "s/\'/\\\'/;s/\t/\";\"/g;s/^/\"/;s/$/\"/;s/\n//g" > '.$country.'/csv/'.$filename);
 
 }
 
@@ -64,20 +65,9 @@ function create_country_csv($country=null) {
  * @return void
  */
 function create_country_sql($country=null) {
-    global $mysql_db, $mysql_table, $mysql_user, $mysql_pass;
-    $mysql_cmd   = "mysqldump -u$mysql_user -p$mysql_pass --extended-insert=false --skip-dump-date --skip-add-drop-table ";
+    global $config;
 
-    $filename = "World/sql/villages.sql";
-    $where_sql = "";
-    $where_option="";
-    if ($country) {
-        $where_sql = "where country=\"$country\"";
-        $where_option = "--where 'country=\"$country\"'";
-        $filename = "$country/sql/villages.sql";
-    }
-    $sed = "sed 's/LOCK TABLES /DELETE FROM \`villages\` $where_sql; LOCK TABLES /'";
-    $sed .= "| sed 's/CREATE TABLE /CREATE TABLE IF NOT EXISTS /'";
-
-    exec("$mysql_cmd $mysql_db $mysql_table $where_option | $sed > $filename");
+    $mysql = new Mysql($config);
+    $mysql->export($country);
 }
 
