@@ -1,10 +1,16 @@
 <?php
 
-require __DIR__."/Config.php";
-require __DIR__."/Export.php";
-require __DIR__."/Export/Mysql.php";
-require __DIR__."/Export/CSV.php";
-define("WORLD", "World");
+namespace Villages;
+
+use Villages\Export\CSV;
+use Villages\Export\Mysql;
+
+spl_autoload_register(
+    function($class) {
+        $class = str_replace("\\", "/", $class);
+        include_once "src/$class.php";
+    }
+);
 
 $mysql_user  = $argv[1];
 $mysql_pass  = $argv[2];
@@ -12,12 +18,15 @@ $mysql_db    = "data";
 $mysql_host  = "localhost";
 $mysql_table = "villages";
 
+$data_dir = "data";
+
 $config = new Config(
     $mysql_user,
     $mysql_pass,
     $mysql_db,
     $mysql_host,
-    $mysql_table
+    $mysql_table,
+    $data_dir
 );
 
 $countries = array(
@@ -26,7 +35,7 @@ $countries = array(
     'Italia',
     'Belgique',
     'Japan',
-    WORLD,
+    Config::WORLD,
 );
 
 foreach ($countries as $country) {
