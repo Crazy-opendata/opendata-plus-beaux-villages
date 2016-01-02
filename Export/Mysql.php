@@ -15,6 +15,7 @@ class Mysql extends Export
             ." --extended-insert=false --skip-dump-date --skip-add-drop-table ";
 
         $filename = $country."/".$this->tag."/".$this->exportName.".".$this->tag;
+        echo "Creating $filename\n";
         $where_sql = "";
         $where_option="";
         if ($country != WORLD) {

@@ -30,6 +30,7 @@ $countries = array(
 );
 
 foreach ($countries as $country) {
+    echo "\nExporting $country\n";
     $csv = new CSV($config);
     $csv->export($country);
 
