@@ -13,6 +13,17 @@ class JSON extends Export
     {
         parent::export($country);
 
+        $villages = $this->getVillages($country);
+
+        $datas = array();
+
+        foreach ($villages as $village) {
+            #print_r($village);
+            $datas[] = $village;
+        }
+
+        file_put_contents($this->filename, json_encode($datas));
+
 
 
         // Source http://stackoverflow.com/questions/12040816/mysqldump-in-csv-format

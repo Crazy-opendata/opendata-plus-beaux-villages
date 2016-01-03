@@ -22,17 +22,17 @@
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE IF NOT EXISTS `villages` (
-  `village` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
-  `slug` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `code_postal` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `coordonnees` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `village` varchar(45) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `code_postal` varchar(255) DEFAULT NULL,
+  `coordonnees` varchar(100) DEFAULT NULL,
   `region` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `year` varchar(5) DEFAULT NULL,
   KEY `country` (`country`),
   KEY `village` (`village`),
   KEY `year` (`year`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

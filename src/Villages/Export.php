@@ -24,7 +24,8 @@ abstract class Export
                 .";port=".$this->config->mysqlPort
                 .";dbname=".$this->config->mysqlBase,
                 $this->config->mysqlUser,
-                $this->config->mysqlPass
+                $this->config->mysqlPass,
+                array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
             );
         } catch (\Exception $e) {
             echo "Unable to connect: " . $e->getMessage() ."<p>";
