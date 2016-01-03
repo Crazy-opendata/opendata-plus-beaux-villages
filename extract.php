@@ -4,6 +4,7 @@ namespace Villages;
 
 use Villages\Export\CSV;
 use Villages\Export\JSON;
+use Villages\Export\GeoJSON;
 use Villages\Export\Mysql;
 
 spl_autoload_register(
@@ -46,6 +47,9 @@ foreach ($countries as $country) {
 
     $json = new JSON($config);
     $json->export($country);
+
+    $geojson = new GeoJSON($config);
+    $geojson->export($country);
 
     $mysql = new Mysql($config);
     $mysql->export($country);
