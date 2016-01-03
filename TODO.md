@@ -4,12 +4,12 @@ Countries
 =========
 
 * Add Quebec villages
+* Add Russian villages
 
 
 Formats
 =======
 
-* Add JSON extract
 * Add GeoJSON extract
 
 
