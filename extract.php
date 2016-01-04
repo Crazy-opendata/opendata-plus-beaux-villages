@@ -38,6 +38,7 @@ $countries = array(
     'Belgique',
     'Japan',
     'Canada',
+    'Deutschland',
     Config::WORLD,
 );
 
