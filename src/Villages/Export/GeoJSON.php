@@ -25,7 +25,7 @@ class GeoJSON extends Export
                 "type" => "Feature",
                 "geometry" => array(
                     "type" => "Point",
-                    "coordinates" => explode(',', $village['coordonnees']),
+                    "coordinates" => array_reverse(explode(',', $village['coordonnees'])),
                     "properties" => $village,
                 )
             );
