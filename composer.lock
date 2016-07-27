@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "58ecbadcb94a5604a5961d719a3b2476",
+    "content-hash": "083d23dfb5731e702a6aa829bcdb8d12",
+    "packages": [
+        {
+            "name": "crazy-opendata/core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Crazy-opendata/core.git",
+                "reference": "cae7f9d4cb48539fa7e2fd33caf9d28e7b66091b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Crazy-opendata/core/zipball/cae7f9d4cb48539fa7e2fd33caf9d28e7b66091b",
+                "reference": "cae7f9d4cb48539fa7e2fd33caf9d28e7b66091b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CrazyOpendata\\Core\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Thibault Taillandier",
+                    "email": "thibault@taillandier.name"
+                }
+            ],
+            "description": "Code for importing/exporting data to repositories",
+            "support": {
+                "source": "https://github.com/Crazy-opendata/core/tree/master",
+                "issues": "https://github.com/Crazy-opendata/core/issues"
+            },
+            "time": "2016-07-27 21:38:58"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "crazy-opendata/core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
