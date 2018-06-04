@@ -9,7 +9,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Crazy-opendata/core"
+            "url": "https://framagit.org/crazy-opendata/core"
         }
     ],
     "require": {
